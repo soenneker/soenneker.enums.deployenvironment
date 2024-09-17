@@ -20,7 +20,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\src\Soenneker.Enums.DeployEnvironment.csproj" />
+        <ProjectReference Include="..\..\src\Soenneker.Enums.DeployEnvironment.csproj" />
     </ItemGroup>
 
 </Project>
