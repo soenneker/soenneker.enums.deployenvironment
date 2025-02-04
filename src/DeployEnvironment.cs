@@ -1,8 +1,8 @@
-﻿using Ardalis.SmartEnum;
+﻿using Soenneker.SmartEnum.Named;
 
 namespace Soenneker.Enums.DeployEnvironment;
 
-public sealed class DeployEnvironment : SmartEnum<DeployEnvironment>
+public sealed class DeployEnvironment : NamedSmartEnum<DeployEnvironment>
 {
     /// <summary>
     /// PR and Local Unit and Integration Tests
