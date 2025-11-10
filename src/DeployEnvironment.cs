@@ -3,7 +3,7 @@
 namespace Soenneker.Enums.DeployEnvironment;
 
 [Intellenum<string>]
-public partial class DeployEnvironment
+public sealed partial class DeployEnvironment
 {
     /// <summary>
     /// PR and Local Unit and Integration Tests
