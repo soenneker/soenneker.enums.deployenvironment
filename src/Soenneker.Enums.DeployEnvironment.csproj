@@ -14,7 +14,7 @@
         <AssemblyName>Soenneker.Enums.DeployEnvironment</AssemblyName>
         <PackageId>Soenneker.Enums.DeployEnvironment</PackageId>
         <PackageTags>intellenum enum deploy environment c# .net dotnet enums</PackageTags>
-        <Copyright>Copyright © 2023-2025 Jake Soenneker</Copyright>
+        <Copyright>Copyright © 2023-2026 Jake Soenneker</Copyright>
         <Authors>Jake Soenneker</Authors>
         <Company>https://soenneker.com</Company>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
