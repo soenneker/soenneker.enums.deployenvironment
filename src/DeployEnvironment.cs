@@ -1,8 +1,8 @@
-﻿using Intellenum;
+using Soenneker.Gen.EnumValues;
 
 namespace Soenneker.Enums.DeployEnvironment;
 
-[Intellenum<string>]
+[EnumValue<string>]
 public sealed partial class DeployEnvironment
 {
     /// <summary>
