@@ -1,9 +1,8 @@
-using Xunit;
 
 namespace Soenneker.Enums.DeployEnvironment.Tests;
 public class DeployEnvironmentTests
 {
-    [Fact]
+    [Test]
     public void Default()
     {
 
