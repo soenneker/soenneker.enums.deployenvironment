@@ -2,6 +2,9 @@ using Soenneker.Gen.EnumValues;
 
 namespace Soenneker.Enums.DeployEnvironment;
 
+/// <summary>
+/// Represents the deploy environment.
+/// </summary>
 [EnumValue<string>]
 public sealed partial class DeployEnvironment
 {
