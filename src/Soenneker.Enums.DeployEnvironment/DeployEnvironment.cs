@@ -20,6 +20,12 @@ public sealed partial class DeployEnvironment
     public static readonly DeployEnvironment Local = new(nameof(Local));
 
     /// <summary>
+    /// End-to-end test environment used for automated full-system validation with deterministic data,
+    /// isolated configuration, and safe or mocked external providers.
+    /// </summary>
+    public static readonly DeployEnvironment E2E = new(nameof(E2E));
+
+    /// <summary>
     /// Azure Development <para/>
     /// This coordinates with appsettings.Development.json
     /// </summary>
