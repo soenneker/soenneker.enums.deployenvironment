@@ -3,19 +3,18 @@ using Soenneker.Gen.EnumValues;
 namespace Soenneker.Enums.DeployEnvironment;
 
 /// <summary>
-/// Represents the deploy environment.
+/// Identifies the isolated runtime environment in which an application or workload is deployed.
 /// </summary>
 [EnumValue<string>]
 public sealed partial class DeployEnvironment
 {
     /// <summary>
-    /// PR and Local Unit and Integration Tests
+    /// Unit and integration test execution, including pull-request validation.
     /// </summary>
     public static readonly DeployEnvironment Test = new(nameof(Test));
 
     /// <summary>
-    /// Developer local machine, pull request pipelines. <para/>
-    /// This coordinates with appsettings.json
+    /// Developer workstations and local application execution using the base application settings.
     /// </summary>
     public static readonly DeployEnvironment Local = new(nameof(Local));
 
@@ -26,20 +25,17 @@ public sealed partial class DeployEnvironment
     public static readonly DeployEnvironment E2E = new(nameof(E2E));
 
     /// <summary>
-    /// Azure Development <para/>
-    /// This coordinates with appsettings.Development.json
+    /// Shared development deployment using development-specific application settings.
     /// </summary>
     public static readonly DeployEnvironment Development = new(nameof(Development));
 
     /// <summary>
-    /// Azure Staging <para/>
-    /// This coordinates with appsettings.Staging.json
+    /// Pre-production staging deployment using staging-specific application settings.
     /// </summary>
     public static readonly DeployEnvironment Staging = new(nameof(Staging));
 
     /// <summary>
-    /// Azure Production <para/>
-    /// This coordinates with appsettings.Production.json
+    /// Live production deployment using production-specific application settings.
     /// </summary>
     public static readonly DeployEnvironment Production = new(nameof(Production));
 }
