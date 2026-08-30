@@ -5,7 +5,7 @@
 
 # Soenneker.Enums.DeployEnvironment
 
-Identifies the isolated runtime environment in which an application or workload is deployed.
+A string-backed enum-value type for carrying a deployment-environment identifier through application and API contracts.
 
 ## Install
 
@@ -13,17 +13,29 @@ Identifies the isolated runtime environment in which an application or workload 
 dotnet add package Soenneker.Enums.DeployEnvironment
 ```
 
-## What you get
+## Usage
 
-- `DeployEnvironment` — Identifies the isolated runtime environment in which an application or workload is deployed.
+```csharp
+using Soenneker.Enums.DeployEnvironment;
 
-## API at a glance
+DeployEnvironment environment = DeployEnvironment.Staging;
+string wireValue = environment.Value; // "Staging"
 
-| API | What it does | Result / important behavior |
-| --- | --- | --- |
-| `DeployEnvironment.Test` | Unit and integration test execution, including pull-request validation. | Unit and integration test execution, including pull-request validation. |
-| `DeployEnvironment.Local` | Developer workstations and local application execution using the base application settings. | Developer workstations and local application execution using the base application settings. |
-| `DeployEnvironment.E2E` | End-to-end test environment used for automated full-system validation with deterministic data, isolated configuration, and safe or mocked external providers. | End-to-end test environment used for automated full-system validation with deterministic data, isolated configuration, and safe or mocked external providers. |
-| `DeployEnvironment.Development` | Shared development deployment using development-specific application settings. | Shared development deployment using development-specific application settings. |
-| `DeployEnvironment.Staging` | Pre-production staging deployment using staging-specific application settings. | Pre-production staging deployment using staging-specific application settings. |
-| `DeployEnvironment.Production` | Live production deployment using production-specific application settings. | Live production deployment using production-specific application settings. |
+if (DeployEnvironment.TryFromValue(configuredValue, out DeployEnvironment? parsed))
+{
+    environment = parsed;
+}
+```
+
+Available values:
+
+- `Test` — unit, integration, or pull-request validation
+- `Local` — a developer workstation
+- `E2E` — isolated end-to-end validation
+- `Development` — a shared development deployment
+- `Staging` — pre-production validation
+- `Production` — the live deployment
+
+`System.Text.Json` serializes the type as the shown string value. `FromValue` throws for an unknown value; use `TryFromValue` when reading configuration or requests. `FromName` and `TryFromName` are also generated.
+
+This type does not read `ASPNETCORE_ENVIRONMENT` or `DOTNET_ENVIRONMENT`, change application configuration, or integrate with `IHostEnvironment` automatically. Map those values explicitly and decide how unknown environments should be handled. Do not use an environment label as an authorization boundary or as the sole control protecting destructive operations.
